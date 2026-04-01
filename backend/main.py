@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .app.routes import keeps
+from routes import keeps
 
 app = FastAPI()
 

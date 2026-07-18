@@ -1,0 +1,31 @@
+
+  .rainbow-bg {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    120deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    lightblue,
+    darkblue,
+    magenta,
+    goldenrod,
+    
+    violet
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 2s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 25%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}

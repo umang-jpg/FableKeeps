@@ -6,6 +6,11 @@ from app.routes import keeps
 
 app = FastAPI()
 
+app.add_middleware(CORSMiddleware,
+allow_origins = ["http://localhost:5173"],
+allow_methods = ["*"],
+allow_headers = ["*"],
+)
 app.include_router(keeps.router)
 models.Base.metadata.create_all(bind=engine)
 

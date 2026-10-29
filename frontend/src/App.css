@@ -1,31 +1,53 @@
+.keep {
+  background-color: #FCE883;
+  width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid hsl(52, 59%, 63%);
+  border-radius: 4px;
 
-  .rainbow-bg {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-    120deg,
-    red,
-    orange,
-    yellow,
-    green,
-    cyan,
-    blue,
-    lightblue,
-    darkblue,
-    magenta,
-    goldenrod,
-    
-    violet
-  );
-  background-size: 400% 400%;
-  animation: gradientMove 2s linear infinite;
+  background-image:
+    linear-gradient(to right, transparent 56px, #e06666 56px, #e06666 57px, transparent 57px),
+    repeating-linear-gradient(to bottom,
+      transparent 0px,
+      transparent 31px,
+      #373737 31px,
+      #6c6d6d 32px);
+  width: 500px;
+  margin: 40px auto;
+  padding: 64px 24px 24px 80px;
+  transform: rotate(-0.8deg);
+
+  will-change: transform;
+  /* 64px = two blank lines at the top */
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: left;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 25%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+.keep-title,
+.keep-body {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit, cursive;
+  font-size: 18px;
+  line-height: 32px;
+  /* same as the spacing between the blue lines */
+  color: #0908c3;
+  resize: none;
+}
+
+.keep-title {
+  height: 32px;
+  color: #00264b;
+  font-weight: bold;
+}
+
+.keep-body {
+  height: 320px;
 }

@@ -10,18 +10,20 @@ function App() {
   return (
     <div className="keep">
       <input
+        className="keep-title"
         value={title}
         onChange={e => setTitle(e.target.value)}
         placeholder="title"
 
       />
-      <p>{title}</p>
+
       <textarea
+        className="keep-body"
         value={content}
         onChange={e => setContent(e.target.value)}
-        placeholder="so here's what happened today...."
+        placeholder="Dear diary...."
       />
-      <p>{content}</p>
+
 
 
 

@@ -1,12 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+
 import './App.css'
 
 
 function App() {
-  return <div className="rainbow-bg"><h1 style={{ fontStyle: 'italic', fontSize: '35px', color: 'white' ,textAlign: 'center', textShadow: '2.5px 2.5px 8px rgba(128, 1, 255, 0.5)' }}>  FABLE KEEPS IS IN PRODUCTION NOW STAY TUNED!!</h1></div>
+
+  const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
+  return (
+    <div className="keep">
+      <input
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        placeholder="title"
+
+      />
+      <p>{title}</p>
+      <textarea
+        value={content}
+        onChange={e => setContent(e.target.value)}
+        placeholder="so here's what happened today...."
+      />
+      <p>{content}</p>
+
+
+
+    </div>)
 }
 
 export default App

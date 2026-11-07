@@ -16,9 +16,21 @@ function App() {
   async function handleSave() {
     setIsSaving(true)
     setError(null)
+    let endpoint;
+    let method;
+
+    if (keepId === null) {
+      endpoint = 'http://localhost:8000/keeps/';
+      method = 'POST';
+    }
+    else {
+      endpoint = `http://localhost:8000/keeps/${keepId}`;
+      method = 'PUT';
+    }
+
     try {
-      const response = await fetch('http://localhost:8000/keeps/', {
-        method: 'POST',
+      const response = await fetch(endpoint, {
+        method: method,
         headers: {
           'Content-type': 'application/json'
         },

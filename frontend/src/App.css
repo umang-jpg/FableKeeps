@@ -1,9 +1,9 @@
 .keep {
-  background-color: #FCE883;
-  width: 400px;
+  background-color: #2C4313;
+  width: 900px;
   margin: 40px auto;
   padding: 20px;
-  border: 1px solid hsl(52, 59%, 63%);
+  border: 1px solid hsl(0, 0%, 100%);
   border-radius: 4px;
 
   background-image:
@@ -13,7 +13,7 @@
       transparent 31px,
       #373737 31px,
       #6c6d6d 32px);
-  width: 500px;
+  width: 900px;
   margin: 40px auto;
   padding: 64px 24px 24px 80px;
   transform: rotate(-0.8deg);
@@ -34,12 +34,13 @@
   border: none;
   outline: none;
   background: transparent;
-  font-family: inherit, cursive;
+  font-family: southern beach, cursive;
   font-size: 18px;
   line-height: 32px;
   /* same as the spacing between the blue lines */
-  color: #0908c3;
+  color: #f0eee9;
   resize: none;
+  overflow: hidden;
 }
 
 .keep-title {
@@ -48,9 +49,7 @@
   font-weight: bold;
 }
 
-.keep-body {
-  height: 320px;
-}
+
 
 .server-down {
   background-color: midnightblue;
@@ -58,4 +57,25 @@
   padding-top: 20%;
   font-family: SF pro;
   color: #FCE883
+}
+
+.page-left {
+  height: auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.page-right {
+  height: 500px;
+  display: flex;
+  overflow: hidden;
+}
+
+.spread {
+  display: flex;
+  justify-content: center;
+  align-items: safe center;
+  width: 100%;
+  height: 100vh;
+  background: #16171d;
 }

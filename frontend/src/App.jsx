@@ -3,6 +3,24 @@ import { useState } from 'react'
 import './App.css'
 
 
+const keeps = [
+  {
+    id: 1,
+    title: 'October 28th',
+    content: 'Short day. Woke up late, finished the CN assignment, and spent the evening reading. Nothing big, but it felt good to slow down.',
+  },
+  {
+    id: 2,
+    title: 'October 29th',
+    content: 'Long day, so I am writing more than usual. Viva practical was tomorrow, and I kept thinking about everything I had not prepared. Kiran and I walked to the canteen after lunch and talked about what we would do after college. Somehow the conversation turned to home, to the trains we miss, and to the small things we will miss when we leave. By evening I had written three pages of notes in my head and none on paper. I want to remember this feeling of being unprepared but calm, because it will probably not come back again in the same way. Tomorrow I will either panic or surprise myself, and I am curious which one it will be. For now the notebook is open and the pen is in my hand, which is enough to end the day on.',
+  },
+  {
+    id: 3,
+    title: 'October 30th',
+    content: 'Viva done before 1pm. Kendy and Bhagu did not do well after prelims, so we spent the afternoon cheering them up. Tomorrow is a holiday.',
+  },
+]
+
 function App() {
 
   const [title, setTitle] = useState('')
@@ -73,37 +91,59 @@ function App() {
       </div>)
 
   }
+
+  function handleContentChange(e) {
+    const textarea = e.target;
+    setContent(e.target.value)
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
   return (
-    <div className="keep">
-      <input
-        className="keep-title"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        placeholder="title"
 
-      />
+    <div className="spread">
+      <div className="keep">
+        <input
+          className="keep-title"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          placeholder="title"
 
-      <textarea
-        className="keep-body"
-        value={content}
-        onChange={e => setContent(e.target.value)}
-        placeholder="Dear diary...."
-      />
-      <button onClick={handleSave} disabled={isSaving}>
-        {isSaving ? 'Saving...' : 'Save'}
-      </button>
+        />
 
-      {showSaved && <p>saved ✓</p>}
+        <textarea
+          className="keep-body"
+          value={content}
+          onChange={handleContentChange}
+          placeholder='Dear Diary....'
 
-      {error && (
-        <div className="popup">
-          we couldn't save the keep at this moment due to error {error.code}. please try again after some time.
-        </div>
-      )}
+        />
+        <button onClick={handleSave} disabled={isSaving}>
+          {isSaving ? 'Saving...' : 'Save'}
+        </button>
+
+        {showSaved && <p>saved ✓</p>}
+
+        {error && (
+          <div className="popup">
+            we couldn't save the keep at this moment due to error {error.code}. please try again after some time.
+          </div>
+        )}
+
+
+
+
+      </div>
+      <div className="keep page-right">
+
+      </div>
 
 
 
     </div>)
+
+
+
+
 }
 
 export default App

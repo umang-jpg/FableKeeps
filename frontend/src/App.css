@@ -6,6 +6,7 @@
   border: 1px solid hsl(0, 0%, 100%);
   border-radius: 4px;
   height: 80vh;
+  overflow: hidden;
 
   background-image:
     linear-gradient(to right, transparent 56px, #e06666 56px, #e06666 57px, transparent 57px),

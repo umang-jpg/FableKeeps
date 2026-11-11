@@ -134,6 +134,10 @@ function App() {
 
       </div>
       <div className="keep page-right">
+        {keeps.map(keep => (<div key={keep.id}>
+          <h3>{keep.title}</h3>
+          <p>{keep.content}</p>
+        </div>))}
 
       </div>
 

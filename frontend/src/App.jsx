@@ -97,7 +97,16 @@ function App() {
   useLayoutEffect(() => {
     const p = measureRef.current.querySelector('p');
     const original = p.textContent;
+    const lpage = document.querySelector('.keep');
 
+    const style = getComputedStyle(lpage);
+
+    const clientHeight = lpage.clientHeight;
+    const paddingTop = parseFloat(style.paddingTop);
+    const paddingBottom = parseFloat(style.paddingBottom);
+
+    const usable = clientHeight - paddingTop - paddingBottom
+    console.log(usable)
     for (const keep of keeps) {
       p.textContent = keep.content;
       const height = measureRef.current.scrollHeight;
@@ -128,7 +137,7 @@ function App() {
     <div className="spread">
 
 
-      <div className="keep measure" ref={measureRef}>
+      <div className=" measure" ref={measureRef}>
 
         <p>Effects are code that runs because something happened to the component, not as part of drawing it. useLayoutEffect is an effect that runs after React has put the elements into the DOM, but before the browser paints the screen.
 

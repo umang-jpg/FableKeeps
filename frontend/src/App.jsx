@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useRef } from 'react'
+import { useLayoutEffect } from 'react'
 
 import './App.css'
 
@@ -30,7 +32,7 @@ function App() {
   const [showSaved, setShowSaved] = useState(false)
   const [error, setError] = useState(null)        // { code, message } for the 422 popup
   const [serverDown, setServerDown] = useState(false)  // true = full-page error
-
+  const measureRef = useRef(null)
   async function handleSave() {
     setIsSaving(true)
     setError(null)
@@ -92,6 +94,23 @@ function App() {
 
   }
 
+  useLayoutEffect(() => {
+    const p = measureRef.current.querySelector('p');
+    const original = p.textContent;
+
+    for (const keep of keeps) {
+      p.textContent = keep.content;
+      const height = measureRef.current.scrollHeight;
+      console.log(keep.title, height);
+
+    }
+
+    p.textContent = original;
+  }, []);
+
+
+
+
   function handleContentChange(e) {
     const textarea = e.target;
     setContent(e.target.value)
@@ -100,7 +119,21 @@ function App() {
   }
   return (
 
+
+
+
+
+
+
     <div className="spread">
+
+
+      <div className="keep measure" ref={measureRef}>
+
+        <p>Effects are code that runs because something happened to the component, not as part of drawing it. useLayoutEffect is an effect that runs after React has put the elements into the DOM, but before the browser paints the screen.
+
+          Why that matters for measuring: the browser calculates sizes during layout. If you measure too early, the element doesn’t exist yet. If you measure after paint, the user may briefly see the wrong content. useLayoutEffect gives you the correct, already-laid-out size, with no flicker.</p>
+      </div>
       <div className="keep">
         <input
           className="keep-title"
@@ -140,6 +173,7 @@ function App() {
         </div>))}
 
       </div>
+
 
 
 
